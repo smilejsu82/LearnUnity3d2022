@@ -6,11 +6,14 @@ public class PlayerController : MonoBehaviour
 {
     public float radius = 1.5f;
     private GameDirector gameDirector;
+    public float maxHp;
+    public float hp;
 
     // Start is called before the first frame update
     void Start()
     {
-        this.gameDirector = GameObject.FindObjectOfType<GameDirector>();    
+        this.gameDirector = GameObject.FindObjectOfType<GameDirector>();
+        this.hp = this.maxHp;
     }
 
     // Update is called once per frame

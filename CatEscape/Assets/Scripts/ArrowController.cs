@@ -38,9 +38,13 @@ public class ArrowController : MonoBehaviour
         //float d = Vector2.Distance(p1, p2);
         if (d < this.radius + player.radius)
         {
-            GameObject gameDirectorGo = GameObject.Find("GameDirector");
-            GameDirector gameDirector = gameDirectorGo.GetComponent<GameDirector>();
-            gameDirector.DecreaseHp();
+
+            this.player.hp -= 1;
+
+            this.gameDirector.UpdateHpGauge(this.player.hp, this.player.maxHp);
+
+
+            //gameDirector.DecreaseHp();
 
             //충동 했다 
             Debug.Log("충돌했다");
