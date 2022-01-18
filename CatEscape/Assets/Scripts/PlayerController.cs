@@ -5,16 +5,19 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float radius = 1.5f;
+    private GameDirector gameDirector;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.gameDirector = GameObject.FindObjectOfType<GameDirector>();    
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (this.gameDirector.isGameOver) return;
+
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
 
