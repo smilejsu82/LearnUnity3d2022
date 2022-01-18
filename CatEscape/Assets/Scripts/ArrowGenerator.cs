@@ -5,17 +5,19 @@ using UnityEngine;
 public class ArrowGenerator : MonoBehaviour
 {
     public GameObject arrowPrefab;
-    
+    private GameDirector gameDirector;
     float span = 1.0f;
     float delta = 0;    //시간을 누적 
 
     void Start()
     {
-        
+        this.gameDirector = GameObject.FindObjectOfType<GameDirector>();
     }
 
     void Update()
     {
+        if (this.gameDirector.isGameOver) return;
+
         this.delta += Time.deltaTime;   //매프레임마다 경과 시간을 누적
         
         if (this.delta >= this.span) {  //1.0보다 크면 
