@@ -6,11 +6,13 @@ public class ArrowController : MonoBehaviour
 {
     private PlayerController player;
     public float radius = 1.0f;
+    private GameDirector gameDirector;
 
     // Start is called before the first frame update
     void Start()
     {
-        this.player = GameObject.FindObjectOfType<PlayerController>();   
+        this.player = GameObject.FindObjectOfType<PlayerController>();
+        this.gameDirector = GameObject.FindObjectOfType<GameDirector>();
     }
 
     // Update is called once per frame
@@ -20,6 +22,9 @@ public class ArrowController : MonoBehaviour
         
         if (this.transform.position.y <= -4.02f)
         {
+            if (!this.gameDirector.isGameOver) {
+                this.gameDirector.IncreaseScore(10);
+            }
             Destroy(this.gameObject);
         }
 

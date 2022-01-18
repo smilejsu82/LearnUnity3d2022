@@ -10,10 +10,12 @@ public class GameDirector : MonoBehaviour
     private float delta;
     public Text txtTime;
     public bool isGameOver;
+    public Text txtScore;
     // Start is called before the first frame update
     void Start()
     {
-        this.hpGauge = GameObject.Find("hpGauge");    
+        this.hpGauge = GameObject.Find("hpGauge");
+        this.txtScore.text = string.Format("{0}Á¡", this.totalScore);
     }
 
     void Update()
@@ -37,6 +39,13 @@ public class GameDirector : MonoBehaviour
                 }
             }
         }
+    }
+
+    private int totalScore;
+
+    public void IncreaseScore(int score) {
+        this.totalScore += score;
+        this.txtScore.text = string.Format("{0}Á¡", this.totalScore);
     }
 
     public GameObject gameoverGo;
