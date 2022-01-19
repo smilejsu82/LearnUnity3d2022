@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 1;
     public Transform leftBoundaryPoint;
     public Transform rightBoundaryPoint;
+    public float radius = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -33,5 +34,11 @@ public class PlayerController : MonoBehaviour
         var pos = this.transform.position;
         pos.x = Mathf.Clamp(this.transform.position.x, this.leftBoundaryPoint.position.x, this.rightBoundaryPoint.position.x);
         this.transform.position = pos;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(this.transform.position, this.radius);
     }
 }

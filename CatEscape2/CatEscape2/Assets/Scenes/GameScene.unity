@@ -534,3 +534,4 @@ MonoBehaviour:
   speed: 1
   leftBoundaryPoint: {fileID: 130924568}
   rightBoundaryPoint: {fileID: 166001962}
+  radius: 1.03
