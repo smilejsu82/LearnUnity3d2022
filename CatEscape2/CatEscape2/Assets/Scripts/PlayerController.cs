@@ -13,14 +13,13 @@ public class PlayerController : MonoBehaviour
     public float maxHp;
     [HideInInspector] 
     public float hp;
-    
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
+    public void Init(float maxHp, Transform leftBoundary, Transform rightBoundary, Vector3 initPos) {
+        this.maxHp = maxHp;
         this.hp = this.maxHp;
-        
+        this.leftBoundaryPoint = leftBoundary;
+        this.rightBoundaryPoint = rightBoundary;
+        this.transform.position = initPos;
     }
 
     // Update is called once per frame
