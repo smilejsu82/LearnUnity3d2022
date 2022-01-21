@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,10 +18,16 @@ public class PlayerController : MonoBehaviour
         this.animator = this.GetComponent<Animator>();
     }
 
+    public Text velocityText;
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        this.velocityText.text = this.rigid2d.velocity.ToString();
+
+        if (Input.GetKeyDown(KeyCode.Space) && this.rigid2d.velocity.y == 0) {
+            Debug.LogFormat ("jump : {0}", this.jumpForce);
+
             this.rigid2d.AddForce(Vector2.up * this.jumpForce);
         }
 
@@ -39,5 +47,16 @@ public class PlayerController : MonoBehaviour
 
         this.animator.speed = speedx / 2.0f;
 
+        if (this.transform.position.y <= -5.37f) {
+            SceneManager.LoadScene("GameScene");
+        }
+
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("³¡");
+        SceneManager.LoadScene("ClearScene");
+    }
+
 }
