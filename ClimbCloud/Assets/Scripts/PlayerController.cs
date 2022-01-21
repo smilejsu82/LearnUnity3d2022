@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
         this.animator = this.GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) {
