@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && this.rigid2d.velocity.y == 0) {
             Debug.LogFormat ("jump : {0}", this.jumpForce);
-
+            this.animator.SetTrigger("JumpTrigger");
             this.rigid2d.AddForce(Vector2.up * this.jumpForce);
         }
 
@@ -45,7 +45,16 @@ public class PlayerController : MonoBehaviour
             this.transform.localScale = new Vector3(key, 1, 1);
         }
 
-        this.animator.speed = speedx / 2.0f;
+        //바닥에 있으면 
+        if (this.rigid2d.velocity.y == 0)
+        {
+            this.animator.speed = speedx / 2.0f;
+        }
+        else 
+        {
+            this.animator.speed = 1.0f;
+        }
+        
 
         if (this.transform.position.y <= -5.37f) {
             SceneManager.LoadScene("GameScene");
