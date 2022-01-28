@@ -7,9 +7,12 @@ public class BasketController : MonoBehaviour
     public AudioClip appleSE;
     public AudioClip bombSE;
     private AudioSource aud;
+    private GameDirector director;
+
     private void Start()
     {
         this.aud = this.GetComponent<AudioSource>();
+        this.director = GameObject.FindObjectOfType<GameDirector>();
     }
 
     // Update is called once per frame
@@ -36,11 +39,13 @@ public class BasketController : MonoBehaviour
         {
             Debug.Log("Apple");
             this.aud.PlayOneShot(this.appleSE);
+            this.director.GetApple();
         }
         else if (other.tag.Equals("Bomb"))
         {
             Debug.Log("Bomb");
             this.aud.PlayOneShot(this.bombSE);
+            this.director.GetBomb();
         }
         Destroy(other.gameObject);
     }
