@@ -1,0 +1,30 @@
+[
+  {
+    "id": "100",
+    "name": "도끼",
+    "damage": "3",
+    "attackSpeed": "0.9",
+    "prefabName": "Axe1h"
+  },
+  {
+    "id": "101",
+    "name": "창",
+    "damage": "5",
+    "attackSpeed": "0.8",
+    "prefabName": "Spear1h"
+  },
+  {
+    "id": "102",
+    "name": "활",
+    "damage": "2.5",
+    "attackSpeed": "1.5",
+    "prefabName": "Bow"
+  },
+  {
+    "id": "103",
+    "name": "철퇴",
+    "damage": "2.8",
+    "attackSpeed": "1",
+    "prefabName": "Mace1h"
+  }
+]
