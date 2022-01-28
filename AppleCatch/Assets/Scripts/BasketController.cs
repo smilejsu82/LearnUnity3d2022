@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class BasketController : MonoBehaviour
 {
+    public AudioClip appleSE;
+    public AudioClip bombSE;
+    private AudioSource aud;
+    private void Start()
+    {
+        this.aud = this.GetComponent<AudioSource>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -19,5 +26,22 @@ public class BasketController : MonoBehaviour
                 this.transform.position = new Vector3(x, 0, z);
             }
         }       
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("¿‚æ“¥Ÿ!");
+
+        if (other.tag.Equals("Apple"))
+        {
+            Debug.Log("Apple");
+            this.aud.PlayOneShot(this.appleSE);
+        }
+        else if (other.tag.Equals("Bomb"))
+        {
+            Debug.Log("Bomb");
+            this.aud.PlayOneShot(this.bombSE);
+        }
+        Destroy(other.gameObject);
     }
 }
